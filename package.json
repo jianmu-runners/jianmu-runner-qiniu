@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "release": "node scripts/upload.js"
+    "release": "node scripts/upload.js",
+    "lint": "eslint ./ --ext .js --cache --fix"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
     "chalk": "^4.1.2",
     "loglevel": "^1.7.1",
     "qiniu": "^7.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-plugin-prettier": "^3.4.0"
   }
 }
