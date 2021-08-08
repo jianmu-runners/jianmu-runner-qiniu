@@ -1,0 +1,44 @@
+name: jianmu-runner-qiniu
+description: 七牛云文件上传
+owner: jianmu
+source: https://gitee.com/jianmu-runners/jianmu-runner-qiniu.git
+docs: https://gitee.com/jianmu-runners/jianmu-runner-qiniu.git
+ref: jianmu_runner_qiniu
+version: 0.0.1
+resultFile: /tmp/result_file
+type: DOCKER
+inputParameters:
+  - ref: qiniu_bucket
+    name: 七牛bucket
+    type: STRING
+    value: ''
+  - ref: qiniu_ak
+    name: 七牛accessKey
+    type: SECRET
+    value: ''
+  - ref: qiniu_sk
+    name: 七牛secretKey
+    type: SECRET
+    value: ''
+  - ref: qiniu_upload_name
+    name: 根目录
+    type: STRING
+    value: jianmu-ci-ui
+  - ref: qiniu_upload_version
+    name: 版本
+    type: STRING
+    value: 1.0.0
+  - ref: qiniu_upload_dir
+    name: 要上传的目录
+    type: STRING
+    value: /tmp/jianmu-ci-ui/dist
+outputParameters:
+  - ref: base_uri
+    name:
+    type: STRING
+    value: /jianmu-ci-ui/1.0.0
+spec:
+  image: jianmudev/jianmu-runner-qiniu:0.0.1
+  cmd:
+    - node
+    - scripts/upload.js
