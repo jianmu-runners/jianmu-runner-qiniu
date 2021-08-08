@@ -1,16 +1,25 @@
 const fs = require('fs');
-const path = require('path');
 const qiniu = require('qiniu');
 const chalk = require('chalk');
 const log = require('loglevel');
-
-const { version } = require(path.resolve('./package.json'));
-const { bucket, accessKey, secretKey } = require(path.resolve('./.qiniu.js'));
-
-log.setLevel(0);
+const { levels: { TRACE } } = log;
+const {
+  QINIU_BUCKET: bucket,
+  QINIU_AK: accessKey,
+  QINIU_SK: secretKey,
+  QINIU_UPLOAD_NAME: name,
+  QINIU_UPLOAD_VERSION: version,
+  QINIU_UPLOAD_DIR: staticPath,
+} = process.env;
+log.setLevel(TRACE);
 
 const mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
-// 构建上传策略函数
+
+/**
+ * 构建上传策略函数
+ * @param key
+ * @returns {string}
+ */
 function getUpToken(key) {
   const putPolicy = new qiniu.rs.PutPolicy({
     scope: `${bucket}:${key}`,
@@ -18,35 +27,47 @@ function getUpToken(key) {
   });
   return putPolicy.uploadToken(mac);
 }
+
 const config = new qiniu.conf.Config();
-config.zone = qiniu.zone.Zone_z1;
+// 空间对应的机房
+// config.zone = qiniu.zone.Zone_z1;
 const formUploader = new qiniu.form_up.FormUploader(config);
-const putExtra = null; //  new qiniu.form_up.PutExtra();
-// 上传文件
+//  new qiniu.form_up.PutExtra();
+const putExtra = null;
+
+/**
+ * 上传文件
+ * @param key
+ * @param localFile
+ */
 function uploadFile(key, localFile) {
-  const uptoken = getUpToken(key);
-  formUploader.putFile(uptoken, key, localFile, putExtra, (err, ret) => {
-    if (!err) {
-      log.info(
-        chalk.bold.green('上传成功 hash:'),
-        ret.hash,
-        chalk.bold.green('key:'),
-        ret.key,
-        chalk.bold.green('persistentId:'),
-        ret.persistentId
+  log.info('上传文件', localFile, '\t->\t', key);
+
+  const uploadToken = getUpToken(key);
+  formUploader.putFile(uploadToken, key, localFile, putExtra, (e, respBody) => {
+    if (!e && !respBody.error) {
+      log.info('上传成功',
+        'hash:', respBody.hash,
+        'key:', respBody.key,
+        'persistentId:', respBody.persistentId
       );
     } else {
-      log.error(chalk.bold.red('上传失败'), err);
+      log.error(chalk.bold.red('上传失败'), e, respBody.error);
     }
   });
 }
-//  目录上传方法
+
+/**
+ * 上传目录
+ * @param dirPath
+ * @param relative
+ */
 function uploadDirectory(dirPath, relative = '') {
   fs.readdir(dirPath, (err, files) => {
     if (err) {
       throw err;
     }
-    //  遍历目录下的内容
+    //  遍历目录
     files.forEach(fileOrDir => {
       const filePath = `${dirPath}/${fileOrDir}`;
       fs.stat(filePath, (statErr, stats) => {
@@ -54,24 +75,16 @@ function uploadDirectory(dirPath, relative = '') {
           throw statErr;
         }
         const relativeName = `${relative}${relative ? '/' : ''}${fileOrDir}`;
-        //  是目录就接着遍历 否则上传
         if (stats.isDirectory()) {
+          // 目录时，继续遍历
           uploadDirectory(filePath, relativeName);
         } else {
-          let key;
-          if ((relativeName || '').startsWith('static')) {
-            key = `renpan-page/${relativeName}`;
-          } else {
-            key = `renpan-page/${version}/${relativeName}`;
-          }
-          uploadFile(key, filePath);
+          // 文件时，上传
+          uploadFile(`${name}/${version}/${relativeName}`, filePath);
         }
       });
     });
   });
 }
 
-module.exports = () => {
-  const staticPath = path.resolve(__dirname, '../dist');
-  uploadDirectory(staticPath);
-};
+module.exports = () => uploadDirectory(staticPath);
