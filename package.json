@@ -1,0 +1,19 @@
+{
+  "name": "jianmu-runner-qiniu",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "release": "node scripts/upload.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/jianmu-runners/jianmu-runner-qiniu.git"
+  },
+  "author": "老技",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "loglevel": "^1.7.1",
+    "qiniu": "^7.4.0"
+  }
+}
