@@ -4,12 +4,12 @@ const chalk = require('chalk');
 const log = require('loglevel');
 const { levels: { TRACE } } = log;
 const {
-  QINIU_BUCKET: bucket,
-  QINIU_AK: accessKey,
-  QINIU_SK: secretKey,
-  QINIU_UPLOAD_NAME: name,
-  QINIU_UPLOAD_VERSION: version,
-  QINIU_UPLOAD_DIR: staticPath,
+  qiniu_bucket: bucket,
+  qiniu_ak: accessKey,
+  qiniu_sk: secretKey,
+  qiniu_upload_name: name,
+  qiniu_upload_version: version,
+  qiniu_upload_dir: staticPath,
 } = process.env;
 log.setLevel(TRACE);
 
@@ -92,6 +92,6 @@ module.exports = () => {
 
   // 创建结果文件
   fs.writeFileSync('/tmp/result_file', JSON.stringify({
-    baseUri: `/${name}/${version}`,
+    base_uri: `/${name}/${version}`,
   }));
 };
