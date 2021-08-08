@@ -34,7 +34,7 @@ inputParameters:
     value: /tmp/jianmu-ci-ui/dist
 outputParameters:
   - ref: base_uri
-    name: base uri
+    name: 根uri
     type: STRING
     value: /jianmu-ci-ui/1.0.0
 spec:
