@@ -30,7 +30,7 @@ function getUpToken(key) {
 
 const config = new qiniu.conf.Config();
 // 空间对应的机房
-// config.zone = qiniu.zone.Zone_z1;
+config.zone = qiniu.zone.Zone_z1;
 const formUploader = new qiniu.form_up.FormUploader(config);
 //  new qiniu.form_up.PutExtra();
 const putExtra = null;
