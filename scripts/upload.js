@@ -1,3 +1,4 @@
+// 配置环境变量，用于本地调试
 require('dotenv').config({ path: '.env' });
 const log = require('loglevel');
 const { levels: { TRACE } } = log;
