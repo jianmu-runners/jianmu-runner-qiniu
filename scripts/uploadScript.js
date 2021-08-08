@@ -92,6 +92,6 @@ module.exports = () => {
 
   // 创建结果文件
   fs.writeFileSync('/tmp/result_file', JSON.stringify({
-    base_uri: `/${name}/${version}`,
+    qiniu_base_uri: `/${name}/${version}`,
   }));
 };

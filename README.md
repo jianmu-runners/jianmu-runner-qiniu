@@ -14,7 +14,7 @@ qiniu_upload_dir: 要上传的目录
 ```
 #### 输出参数
 ```
-base_uri: 上传后的根uri
+qiniu_base_uri: 上传后的根uri
 ```
 
 #### 构建
