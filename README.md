@@ -17,12 +17,13 @@ qiniu_upload_dir: 要上传的目录
 qiniu_base_uri: 上传后的根uri
 ```
 
-#### 构建
+#### 构建docker镜像
 ```
 docker build -t jianmudev/jianmu-runner-qiniu:${version} .
 ```
 
-#### 使用
+#### 用法
+文件上传：
 ```
 docker run --rm \
   -e qiniu_bucket=xxx \
