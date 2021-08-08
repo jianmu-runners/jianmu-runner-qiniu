@@ -87,4 +87,11 @@ function uploadDirectory(dirPath, relative = '') {
   });
 }
 
-module.exports = () => uploadDirectory(staticPath);
+module.exports = () => {
+  uploadDirectory(staticPath);
+
+  // 创建结果文件
+  fs.writeFileSync('/tmp/result_file', JSON.stringify({
+    baseDir: `/${name}/${version}`,
+  }));
+};
