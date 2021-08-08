@@ -5,4 +5,4 @@ WORKDIR /app
 COPY ./node_modules node_modules
 COPY ./scripts scripts
 
-CMD [ "node", "scripts/upload.js" ]
+# CMD [ "node", "scripts/upload.js" ]
