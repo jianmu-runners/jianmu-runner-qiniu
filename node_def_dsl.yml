@@ -21,11 +21,11 @@ inputParameters:
     type: SECRET
     value: ''
   - ref: qiniu_upload_name
-    name: 根目录
+    name: 上传后的根目录
     type: STRING
     value: jianmu-ci-ui
   - ref: qiniu_upload_version
-    name: 版本
+    name: 上传后的版本
     type: STRING
     value: 1.0.0
   - ref: qiniu_upload_dir
@@ -34,7 +34,7 @@ inputParameters:
     value: /tmp/jianmu-ci-ui/dist
 outputParameters:
   - ref: base_uri
-    name: 根uri
+    name: 上传后的根uri
     type: STRING
     value: /jianmu-ci-ui/1.0.0
 spec:
