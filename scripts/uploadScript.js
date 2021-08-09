@@ -1,6 +1,5 @@
 const fs = require('fs');
 const qiniu = require('qiniu');
-const chalk = require('chalk');
 const log = require('loglevel');
 const { levels: { TRACE } } = log;
 const {
@@ -52,7 +51,7 @@ function uploadFile(key, localFile) {
         'persistentId:', respBody.persistentId
       );
     } else {
-      log.error(chalk.bold.red('上传失败'), e, respBody.error);
+      log.error('上传失败', e, respBody.error);
     }
   });
 }
