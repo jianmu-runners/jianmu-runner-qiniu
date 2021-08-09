@@ -43,15 +43,14 @@ function uploadFile(key, localFile) {
   log.info('上传文件', localFile, '\t->\t', key);
 
   const uploadToken = getUpToken(key);
-  formUploader.putFile(uploadToken, key, localFile, putExtra, (e, respBody) => {
-    if (!e && !respBody.error) {
-      log.info('上传成功',
-        'hash:', respBody.hash,
-        'key:', respBody.key,
-        'persistentId:', respBody.persistentId
-      );
+  formUploader.putFile(uploadToken, key, localFile, putExtra, (respErr, respBody, respInfo) => {
+    if (respErr) {
+      throw respErr;
+    }
+    if (respInfo.statusCode === 200) {
+      log.info('上传成功', JSON.stringify(respBody));
     } else {
-      log.error('上传失败', e, respBody.error);
+      console.warn('上传失败', respInfo.statusCode, JSON.stringify(respBody));
     }
   });
 }
