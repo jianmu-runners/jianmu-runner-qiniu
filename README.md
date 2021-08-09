@@ -19,7 +19,14 @@ qiniu_base_uri: 上传后的根uri
 
 #### 构建docker镜像
 ```
+# 安装依赖
+npm install 或 yarn
+
+# 创建docker镜像
 docker build -t jianmudev/jianmu-runner-qiniu:${version} .
+
+# 上传docker镜像
+docker push jianmudev/jianmu-runner-qiniu:${version}
 ```
 
 #### 用法
