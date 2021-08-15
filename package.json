@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "upload": "node scripts/upload.js",
+    "build": "echo 'No build required'",
     "lint": "eslint ./ --ext .js --cache --fix"
   },
   "repository": {
