@@ -41,4 +41,4 @@ spec:
   image: jianmudev/jianmu-runner-qiniu:0.1.0
   cmd:
     - node
-    - scripts/upload.js
+    - /app/scripts/upload.js
