@@ -2,14 +2,16 @@ const fs = require('fs');
 const qiniu = require('qiniu');
 const log = require('loglevel');
 const { levels: { TRACE } } = log;
+const { resolve } = require('path');
 const {
   JIANMU_QINIU_BUCKET: bucket,
   JIANMU_QINIU_AK: accessKey,
   JIANMU_QINIU_SK: secretKey,
   JIANMU_QINIU_UPLOAD_NAME: name,
   JIANMU_QINIU_UPLOAD_VERSION: version,
-  JIANMU_QINIU_UPLOAD_DIR: staticPath,
+  JIANMU_QINIU_UPLOAD_DIR,
 } = process.env;
+const staticPath = resolve(JIANMU_QINIU_UPLOAD_DIR);
 log.setLevel(TRACE);
 
 const mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
