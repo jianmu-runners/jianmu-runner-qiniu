@@ -4,7 +4,7 @@ owner: jianmu
 source: https://gitee.com/jianmu-runners/jianmu-runner-qiniu.git
 docs: https://gitee.com/jianmu-runners/jianmu-runner-qiniu.git
 ref: jianmu_runner_qiniu
-version: 0.0.2
+version: 0.1.0
 resultFile: /tmp/result_file
 type: DOCKER
 inputParameters:
@@ -38,7 +38,7 @@ outputParameters:
     type: STRING
     value: /jianmu-ci-ui/1.0.0
 spec:
-  image: jianmudev/jianmu-runner-qiniu:0.0.1
+  image: jianmudev/jianmu-runner-qiniu:0.1.0
   cmd:
     - node
     - scripts/upload.js
