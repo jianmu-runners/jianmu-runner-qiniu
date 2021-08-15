@@ -33,12 +33,12 @@ docker push jianmudev/jianmu-runner-qiniu:${version}
 文件上传：
 ```
 docker run --rm \
-  -e qiniu_bucket=xxx \
-  -e qiniu_ak=xxx \
-  -e qiniu_sk=xxx \
-  -e qiniu_upload_name=xxx \
-  -e qiniu_upload_version=x.x.x \
-  -e qiniu_upload_dir=/tmp/dist \
+  -e JIANMU_QINIU_BUCKET=xxx \
+  -e JIANMU_QINIU_AK=xxx \
+  -e JIANMU_QINIU_SK=xxx \
+  -e JIANMU_QINIU_UPLOAD_NAME=xxx \
+  -e JIANMU_QINIU_UPLOAD_VERSION=x.x.x \
+  -e JIANMU_QINIU_UPLOAD_DIR=/tmp/dist \
   -v /${workspace}/${project_dir}:/tmp/dist \
   -v /${workspace}/result_file:/tmp/result_file \
   jianmudev/jianmu-runner-qiniu:${version} \

@@ -5,7 +5,7 @@ const { levels: { TRACE } } = log;
 log.setLevel(TRACE);
 
 Object.keys(process.env).map(key => {
-  if (!key.startsWith('qiniu_')) {
+  if (!key.startsWith('JIANMU_QINIU_')) {
     return;
   }
 

@@ -3,12 +3,12 @@ const qiniu = require('qiniu');
 const log = require('loglevel');
 const { levels: { TRACE } } = log;
 const {
-  qiniu_bucket: bucket,
-  qiniu_ak: accessKey,
-  qiniu_sk: secretKey,
-  qiniu_upload_name: name,
-  qiniu_upload_version: version,
-  qiniu_upload_dir: staticPath,
+  JIANMU_QINIU_BUCKET: bucket,
+  JIANMU_QINIU_AK: accessKey,
+  JIANMU_QINIU_SK: secretKey,
+  JIANMU_QINIU_UPLOAD_NAME: name,
+  JIANMU_QINIU_UPLOAD_VERSION: version,
+  JIANMU_QINIU_UPLOAD_DIR: staticPath,
 } = process.env;
 log.setLevel(TRACE);
 
