@@ -24,7 +24,7 @@ const mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
 function getUpToken(key) {
   const putPolicy = new qiniu.rs.PutPolicy({
     scope: `${bucket}:${key}`,
-    returnBody: '{"key":"$(key)","hash":"$(etag)","fsize":$(fsize),"bucket":"$(bucket)","name":"$(x:name)"}',
+    returnBody: '{"key":"$(key)","hash":"$(etag)","fsize":$(fsize),"bucket":"$(bucket)"}',
   });
   return putPolicy.uploadToken(mac);
 }
