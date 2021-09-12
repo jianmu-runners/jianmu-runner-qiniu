@@ -1,3 +1,6 @@
+param:
+  image_name: jianmudev/jianmu-runner-qiniu
+
 pipeline:
   name: 构建七牛云节点定义docker镜像
   ref: jianmu_runner_qiniu_image_builder
@@ -18,7 +21,7 @@ pipeline:
       docker_username: ((dockerhub.username))
       docker_password: ((dockerhub.password))
       docker_file: Dockerfile
-      image_name: jianmudev/jianmu-runner-qiniu
+      image_name: ${global.image_name}
       image_tag: ${node_build.package_version}
       docker_build_path: .
   send_message:
@@ -26,6 +29,6 @@ pipeline:
     param:
       bot_webhook_url: ((charbot.webhook_url))
       mentioned_moblie_list: "[]"
-      text_content: "七牛云节点定义docker镜像构建完成"
+      text_content: "七牛云节点定义docker镜像构建完成。\n镜像${global.image_name}:${node_build.package_version}"
       msgtype: "text"
       mentioned_list: "[]"
