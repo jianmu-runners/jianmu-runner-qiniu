@@ -37,10 +37,10 @@ const config = new qiniu.conf.Config();
 // 东南亚：as0
 // 空间对应的机房，不设置时，自动识别
 if (zone) {
-  console.log('指定zone', zone);
+  log.info('指定zone', zone);
   config.zone = qiniu.zone[`Zone_${zone}`];
 } else {
-  console.log('尚未指定zone，自动识别');
+  log.info('尚未指定zone，自动识别');
 }
 const formUploader = new qiniu.form_up.FormUploader(config);
 // new qiniu.form_up.PutExtra();
@@ -62,7 +62,7 @@ function uploadFile(key, localFile) {
     if (respInfo.statusCode === 200) {
       log.info('上传成功', JSON.stringify(respBody));
     } else {
-      console.warn('上传失败', respInfo.statusCode, JSON.stringify(respBody));
+      log.warn('上传失败', respInfo.statusCode, JSON.stringify(respBody));
     }
   });
 }
