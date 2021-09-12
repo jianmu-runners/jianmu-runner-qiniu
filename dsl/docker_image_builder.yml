@@ -21,3 +21,11 @@ pipeline:
       image_name: jianmudev/jianmu-runner-qiniu
       image_tag: ${node_build.package_version}
       docker_build_path: .
+  send_message:
+    type: qywx_notice:1.0.0
+    param:
+      bot_webhook_url: ((charbot.webhook_url))
+      mentioned_moblie_list: "[]"
+      text_content: "七牛云节点定义docker镜像构建完成"
+      msgtype: "text"
+      mentioned_list: "[]"
