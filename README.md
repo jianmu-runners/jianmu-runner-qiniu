@@ -8,8 +8,7 @@
 qiniu_bucket: 七牛bucket
 qiniu_ak: 七牛accessKey
 qiniu_sk: 七牛secretKey
-qiniu_upload_name: 上传后的根目录
-qiniu_upload_version: 上传后的版本
+qiniu_upload_uri_prefix: 上传后的路径前缀
 qiniu_upload_dir: 要上传的目录
 ```
 #### 输出参数

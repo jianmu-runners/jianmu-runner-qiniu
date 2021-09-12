@@ -1,5 +1,5 @@
 ref: qiniu_upload
-version: 0.1.2
+version: 1.0.0
 resultFile: /tmp/result_file
 inputParameters:
   - ref: qiniu_bucket
@@ -14,14 +14,10 @@ inputParameters:
     name: 七牛secretKey
     type: SECRET
     value: ''
-  - ref: qiniu_upload_name
-    name: 上传后的根目录
+  - ref: qiniu_upload_uri_prefix
+    name: 上传后的路径前缀
     type: STRING
-    value: jianmu-ci-ui
-  - ref: qiniu_upload_version
-    name: 上传后的版本
-    type: STRING
-    value: 1.0.0
+    value: jianmu-ci-ui/1.0.0
   - ref: qiniu_upload_dir
     name: 要上传的目录
     type: STRING
@@ -32,7 +28,7 @@ outputParameters:
     type: STRING
     value: /jianmu-ci-ui/1.0.0
 spec:
-  image: jianmudev/jianmu-runner-qiniu:0.1.1
+  image: jianmudev/jianmu-runner-qiniu:1.0.0
   cmd:
     - node
     - /app/scripts/upload.js
