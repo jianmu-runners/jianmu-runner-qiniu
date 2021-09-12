@@ -39,6 +39,8 @@ const config = new qiniu.conf.Config();
 if (zone) {
   console.log('指定zone', zone);
   config.zone = qiniu.zone[`Zone_${zone}`];
+} else {
+  console.log('尚未指定zone，自动识别');
 }
 const formUploader = new qiniu.form_up.FormUploader(config);
 // new qiniu.form_up.PutExtra();
