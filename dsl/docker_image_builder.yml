@@ -29,6 +29,6 @@ pipeline:
     param:
       bot_webhook_url: ((charbot.webhook_url))
       mentioned_moblie_list: "[]"
-      text_content: "七牛云节点定义docker镜像构建完成。\n镜像：${global.image_name}:${node_build.package_version}"
+      text_content: "七牛云节点定义docker镜像构建完成。\\n\\n镜像：${global.image_name}:${node_build.package_version}"
       msgtype: "text"
       mentioned_list: "[]"
