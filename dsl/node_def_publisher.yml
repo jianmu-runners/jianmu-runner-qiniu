@@ -2,15 +2,14 @@ pipeline:
   name: 发布七牛云节点定义
   ref: jianmu_runner_qiniu_publisher
   description: 发布七牛云节点定义
-  Clone:
-    type: git:v1.0
+  git_clone:
+    type: git_clone:1.0.0
     param:
-      workspace: jianmu-runner-qiniu
       remote_url: https://gitee.com/jianmu-runners/jianmu-runner-qiniu.git
-      commit_branch: master
-  Publish:
-    type: hub_publish:v1.0
+      ref: refs/heads/master
+  hub_publish:
+    type: hub_publish:1.0.0
     param:
-      registry_url: https://hub.jianmu.run
-      task_dsl_file:  jianmu-runner-qiniu/dsl/node_def.yml
+      hub_url: https://hub.jianmu.run
+      dsl_file_path:  ${git_clone.git_path}/dsl/node_def.yml
       hub_appkey: ((jianmuhub.appkey))
