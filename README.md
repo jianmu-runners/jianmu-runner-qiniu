@@ -36,8 +36,7 @@ docker run --rm \
   -e JIANMU_QINIU_BUCKET=xxx \
   -e JIANMU_QINIU_AK=xxx \
   -e JIANMU_QINIU_SK=xxx \
-  -e JIANMU_QINIU_UPLOAD_NAME=xxx \
-  -e JIANMU_QINIU_UPLOAD_VERSION=x.x.x \
+  -e JIANMU_QINIU_UPLOAD_URI_PREFIX=xxx/x.x.x \
   -e JIANMU_QINIU_UPLOAD_DIR=/tmp/dist \
   -v /${workspace}/${project_dir}:/tmp/dist \
   -v /${workspace}/result_file:/tmp/result_file \

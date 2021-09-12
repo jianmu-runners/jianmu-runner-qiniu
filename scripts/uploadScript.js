@@ -7,8 +7,7 @@ const {
   JIANMU_QINIU_BUCKET: bucket,
   JIANMU_QINIU_AK: accessKey,
   JIANMU_QINIU_SK: secretKey,
-  JIANMU_QINIU_UPLOAD_NAME: name,
-  JIANMU_QINIU_UPLOAD_VERSION: version,
+  JIANMU_QINIU_UPLOAD_URI_PREFIX: uriPrefix,
   JIANMU_QINIU_UPLOAD_DIR,
 } = process.env;
 const staticPath = resolve(JIANMU_QINIU_UPLOAD_DIR);
@@ -80,7 +79,7 @@ function uploadDirectory(dirPath, relative = '') {
           uploadDirectory(filePath, relativeName);
         } else {
           // 文件时，上传
-          uploadFile(`${name}/${version}/${relativeName}`, filePath);
+          uploadFile(`${uriPrefix}/${relativeName}`, filePath);
         }
       });
     });
@@ -92,6 +91,6 @@ module.exports = () => {
 
   // 创建结果文件
   fs.writeFileSync('/tmp/result_file', JSON.stringify({
-    qiniu_base_uri: `/${name}/${version}`,
+    qiniu_base_uri: `/${uriPrefix}`,
   }));
 };
