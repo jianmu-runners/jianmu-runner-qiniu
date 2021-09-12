@@ -19,5 +19,5 @@ pipeline:
       docker_password: ((dockerhub.password))
       docker_file: Dockerfile
       image_name: jianmudev/jianmu-runner-qiniu
-      image_tag: ${node_build.version}
+      image_tag: ${node_build.package_version}
       docker_build_path: .
