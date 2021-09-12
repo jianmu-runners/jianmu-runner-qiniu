@@ -1,5 +1,5 @@
 ref: qiniu_upload
-version: 1.0.0
+version: 1.0.1
 resultFile: /tmp/result_file
 inputParameters:
   - ref: qiniu_bucket
@@ -33,7 +33,7 @@ outputParameters:
     type: STRING
     value: /jianmu-ci-ui/1.0.0
 spec:
-  image: jianmudev/jianmu-runner-qiniu:1.0.0
+  image: jianmudev/jianmu-runner-qiniu:1.0.1
   cmd:
     - node
     - /app/scripts/upload.js
