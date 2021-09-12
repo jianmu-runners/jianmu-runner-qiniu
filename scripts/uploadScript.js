@@ -7,6 +7,7 @@ const {
   JIANMU_QINIU_BUCKET: bucket,
   JIANMU_QINIU_AK: accessKey,
   JIANMU_QINIU_SK: secretKey,
+  JIANMU_QINIU_ZONE: zone,
   JIANMU_QINIU_UPLOAD_URI_PREFIX: uriPrefix,
   JIANMU_QINIU_UPLOAD_DIR,
 } = process.env;
@@ -29,8 +30,15 @@ function getUpToken(key) {
 }
 
 const config = new qiniu.conf.Config();
+// 华东：z0
+// 华北：z1
+// 华南：z2
+// 北美：na0
+// 东南亚：as0
 // 空间对应的机房，不设置时，自动识别
-// config.zone = qiniu.zone.Zone_z1;
+if (zone) {
+  config.zone = qiniu.zone[`Zone_${zone}`];
+}
 const formUploader = new qiniu.form_up.FormUploader(config);
 // new qiniu.form_up.PutExtra();
 const putExtra = null;

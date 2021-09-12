@@ -8,6 +8,7 @@
 qiniu_bucket: 七牛bucket
 qiniu_ak: 七牛accessKey
 qiniu_sk: 七牛secretKey
+qiniu_zone: 七牛zone，可选参数，不设置时，自动识别，华东：z0；华北：z1；华南：z2；北美：na0；东南亚：as0
 qiniu_upload_uri_prefix: 上传后的路径前缀
 qiniu_upload_dir: 要上传的目录
 ```

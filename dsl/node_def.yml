@@ -14,6 +14,11 @@ inputParameters:
     name: 七牛secretKey
     type: SECRET
     value: ''
+  - ref: qiniu_zone
+    name: 七牛zone
+    type: STRING
+    value: ''
+    description: 可选参数，不设置时，自动识别，华东：z0；华北：z1；华南：z2；北美：na0；东南亚：as0
   - ref: qiniu_upload_uri_prefix
     name: 上传后的路径前缀
     type: STRING
