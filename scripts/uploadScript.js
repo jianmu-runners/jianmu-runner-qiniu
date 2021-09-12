@@ -37,6 +37,7 @@ const config = new qiniu.conf.Config();
 // 东南亚：as0
 // 空间对应的机房，不设置时，自动识别
 if (zone) {
+  console.log('指定zone', zone);
   config.zone = qiniu.zone[`Zone_${zone}`];
 }
 const formUploader = new qiniu.form_up.FormUploader(config);
