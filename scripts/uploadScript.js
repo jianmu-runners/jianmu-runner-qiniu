@@ -63,6 +63,7 @@ function uploadFile(key, localFile) {
       log.info('上传成功', JSON.stringify(respBody));
     } else {
       log.warn('上传失败', respInfo.statusCode, JSON.stringify(respBody));
+      process.exit(1);
     }
   });
 }
