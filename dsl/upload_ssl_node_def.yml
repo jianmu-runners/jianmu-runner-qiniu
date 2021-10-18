@@ -1,4 +1,4 @@
-ref: tanglongyan/qiniu_ssl_upload
+ref: qiniu_ssl_upload
 version: 1.0.0
 resultFile: /tmp/resultFile
 inputParameters:
