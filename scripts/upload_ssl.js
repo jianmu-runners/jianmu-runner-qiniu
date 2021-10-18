@@ -13,10 +13,8 @@ const createToken = function () {
     return qiniu.util.generateAccessToken(mac, url);
   }
   // 生成上传 Token
-  const token = uptoken();
-  // console.log(token)
+  return uptoken();
 };
-createToken();
 
 const instance = axios.create();
 const ca = fs.readFileSync(process.env.JIANMU_CERTIFICATE_PATH, 'utf-8');
@@ -32,8 +30,7 @@ const params = {
     .post(url, params, {
       headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        Authorization:
-          'QBox sHOM6lTRDB0gjO1LK2ygJup1UuAGzHs4EQmkNTwQ:eVAQYiDRDhxsT-6yPYR6VVW0pnQ=',
+        Authorization: createToken(),
       },
     })
     .then(result => {
