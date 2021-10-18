@@ -4,17 +4,17 @@ resultFile: /tmp/resultFile
 inputParameters:
   - name: 证书路径
     ref: certificate_path
-    value: '/root/tmp/fullchain.cer'
+    value: ''
     description: 证书路径
     type: STRING
   - name: 证书密钥路径
     ref: certificate_key_path
-    value: '/root/tmp/test.huangxi.asia.key'
+    value: ''
     description: 证书密钥路径
     type: STRING
   - name: 域名
     ref: domain
-    value: 'test.huangxi.asia'
+    value: 'example.com'
     description: 域名
     type: STRING
   - name: 七牛accessKey
