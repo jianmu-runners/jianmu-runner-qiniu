@@ -1,13 +1,12 @@
 const fs = require('fs');
 const axios = require('axios');
-require('dotenv').config({ path: '.env.example' });
 const url = 'https://api.qiniu.com/sslcert';
 // 生成七牛管理凭证
 const createToken = function () {
   const qiniu = require('qiniu');
   const mac = new qiniu.auth.digest.Mac(
-    process.env.JIANMU_QINIU_ACCESSKEY,
-    process.env.JIANMU_QINIU_SECRETKEY
+    process.env.JIANMU_QINIU_ACCESS_KEY,
+    process.env.JIANMU_QINIU_SECRET_KEY
   );
   function uptoken() {
     return qiniu.util.generateAccessToken(mac, url);
@@ -15,7 +14,6 @@ const createToken = function () {
   // 生成上传 Token
   return uptoken();
 };
-
 const instance = axios.create();
 const ca = fs.readFileSync(process.env.JIANMU_CERTIFICATE_PATH, 'utf-8');
 const pri = fs.readFileSync(process.env.JIANMU_CERTIFICATE_KEY_PATH, 'utf-8');
