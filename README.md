@@ -50,7 +50,7 @@ docker run --rm \
   -v /${workspace}/${project_dir}:/tmp/dist \
   -v /${workspace}/result_file:/tmp/result_file \
   jianmudev/jianmu-runner-qiniu:${version} \
-  node scripts/upload.js
+  node /app/scripts/upload.js
 ```
 
 ### 七牛云 ssl 证书上传
