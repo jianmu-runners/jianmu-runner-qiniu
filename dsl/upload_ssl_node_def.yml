@@ -35,3 +35,6 @@ outputParameters:
     description: 证书上传七牛云成功后生成的证书id
 spec:
   image: 'jianmudev/jianmu-runner-qiniu:1.1.0'
+  cmd:
+    - node
+    - /app/scripts/upload_ssl.js
