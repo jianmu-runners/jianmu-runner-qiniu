@@ -92,11 +92,11 @@ ssl 证书上传：
 
 ```
 docker run --rm \
-  -e JIANMU_CERTIFICATE_PATH=xxx \
-  -e JIANMU_CERTIFICATE_KEY_PATH=xxx \
-  -e JIANMU_DOMAIN=xxx \
-  -e JIANMU_QINIU_ACCESSKEY=xxx/x.x.x \
-  -e JIANMU_QINIU_SECRETKEY=/tmp/dist \
+  -e JIANMU_CERTIFICATE_PATH=/tmp/xxx \
+  -e JIANMU_CERTIFICATE_KEY_PATH=/tmp/xxx \
+  -e JIANMU_DOMAIN=example.com \
+  -e JIANMU_QINIU_ACCESSKEY=xxx \
+  -e JIANMU_QINIU_SECRETKEY=xxx \
   -v /${workspace}/${project_dir}:/tmp \
   -v /${workspace}/result_file:/tmp/resultFile \
   jianmudev/jianmu-runner-qiniu:${version} \
