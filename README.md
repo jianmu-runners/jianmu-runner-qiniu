@@ -100,5 +100,5 @@ docker run --rm \
   -v /${workspace}/${project_dir}:/tmp \
   -v /${workspace}/result_file:/tmp/resultFile \
   jianmudev/jianmu-runner-qiniu:${version} \
-  node scripts/upload_ssl.js
+  node /app/scripts/upload_ssl.js
 ```
