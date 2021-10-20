@@ -16,7 +16,8 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "loglevel": "^1.7.1",
-    "qiniu": "^7.4.0"
+    "qiniu": "^7.4.0",
+    "axios": "^0.22.0"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
