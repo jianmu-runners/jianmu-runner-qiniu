@@ -12,9 +12,10 @@ const {
 } = process.env;
 
 const mac = new qiniu.auth.digest.Mac(JIANMU_ACCESS_KEY, JIANMU_SECRET_KEY);
-const token = qiniu.util.generateAccessToken(
+// 获取token
+const domainToken = qiniu.util.generateAccessToken(
   mac,
-  `https://api.qiniu.com/domain/${JIANMU_DOMAIN}/httpsconf`
+  `https://api.qiniu.com/domain/${JIANMU_DOMAIN}`
 );
 
 const data = {
@@ -24,15 +25,58 @@ const data = {
 };
 
 axios
-  .put(`https://api.qiniu.com/domain/${JIANMU_DOMAIN}/httpsconf`, data, {
+  .get(`https://api.qiniu.com/domain/${JIANMU_DOMAIN}`, {
     headers: {
-      Authorization: token,
+      Authorization: domainToken,
     },
   })
   .then(res => {
     console.log('status:', res.status);
     console.log('statusText:', res.statusText);
     console.log('data:', res.data);
+    if (res.data.protocol === 'http') {
+      const sslizeToken = qiniu.util.generateAccessToken(
+        mac,
+        `https://api.qiniu.com/domain/${JIANMU_DOMAIN}/sslize`
+      );
+      // http升级到https并修改证书
+      axios
+        .put(`https://api.qiniu.com/domain/${JIANMU_DOMAIN}/sslize`, data, {
+          headers: {
+            Authorization: sslizeToken,
+          },
+        })
+        .then(res => {
+          console.log('status:', res.status);
+          console.log('statusText:', res.statusText);
+          console.log('data:', res.data);
+        })
+        .catch(err => {
+          console.error(err);
+          process.exit(1);
+        });
+    } else {
+      const httpsConfToken = qiniu.util.generateAccessToken(
+        mac,
+        `https://api.qiniu.com/domain/${JIANMU_DOMAIN}/httpsconf`
+      );
+      // 已经是https直接修改证书
+      axios
+        .put(`https://api.qiniu.com/domain/${JIANMU_DOMAIN}/httpsconf`, data, {
+          headers: {
+            Authorization: httpsConfToken,
+          },
+        })
+        .then(res => {
+          console.log('status:', res.status);
+          console.log('statusText:', res.statusText);
+          console.log('data:', res.data);
+        })
+        .catch(err => {
+          console.error(err);
+          process.exit(1);
+        });
+    }
   })
   .catch(err => {
     console.error(err);
