@@ -24,7 +24,7 @@ inputParameters:
   - name: 是否强制跳转https
     ref: force_https
     type: BOOL
-    value: false
+    required: true
     description: 是否强制跳转https
   - name: 是否启用http2功能
     ref: http2_enable
