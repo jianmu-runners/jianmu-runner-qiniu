@@ -1,25 +1,25 @@
 ref: qiniu_domain_ssl_update
-version: 1.0.0
+version: 1.0.1
 inputParameters:
   - name: 域名
     ref: domain
     type: STRING
-    value: ''
+    required: true
     description: 需要配置的域名
   - name: 七牛ak
     ref: access_key
     type: SECRET
-    value: ''
+    required: true
     description: 七牛ak，配合七牛sk生成token
   - name: 七牛sk
     ref: secret_key
     type: SECRET
-    value: ''
+    required: true
     description: 七牛sk，配合七牛ak生成token
   - name: 证书id
     ref: cert_id
     type: STRING
-    value: ''
+    required: true
     description: 证书id，从上传或者获取证书列表里拿到证书id
   - name: 是否强制跳转https
     ref: force_https
@@ -29,7 +29,7 @@ inputParameters:
   - name: 是否启用http2功能
     ref: http2_enable
     type: BOOL
-    value: true
+    required: true
     description: 是否启用http2功能
 spec:
   image: 'jianmudev/jianmu-runner-qiniu:1.2.0'
