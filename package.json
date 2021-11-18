@@ -1,6 +1,6 @@
 {
   "name": "jianmu-runner-qiniu",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "scripts": {
     "upload": "node scripts/upload.js",
