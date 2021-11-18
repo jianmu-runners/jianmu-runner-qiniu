@@ -1,5 +1,5 @@
 ref: qiniu_ssl_upload
-version: 1.0.0
+version: 1.0.1
 resultFile: /tmp/resultFile
 inputParameters:
   - name: 证书路径
