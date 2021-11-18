@@ -14,7 +14,7 @@ inputParameters:
     type: STRING
   - name: 域名
     ref: domain
-    value: 'example.com'
+    required: true
     description: 域名
     type: STRING
   - name: 七牛accessKey
