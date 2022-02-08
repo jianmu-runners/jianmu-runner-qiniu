@@ -1,5 +1,5 @@
 const axios = require('axios');
-const update_domain_ssl = require('scripts/update_domain_ssl');
+const update_domain_ssl = require('scripts/update_domain_ssl.js');
 require('dotenv').config({ path: '.env' });
 
 const {
