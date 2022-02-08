@@ -6,7 +6,7 @@
 
 ### 发布到建木Hub
 
-通过建木CI执行[qiniu.yml]('https://gitee.com/jianmu-runners/jianmu-runner-list/blob/master/release_dsl/qiniu.yml') ，可发布到建木Hub
+通过建木CI执行[qiniu.yml](https://gitee.com/jianmu-runners/jianmu-runner-list/blob/master/release_dsl/qiniu.yml) ，可发布到建木Hub
 
 ### 输入参数
 
