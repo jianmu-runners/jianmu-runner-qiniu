@@ -7,7 +7,7 @@
   resolved "https://registry.npmmirror.com/@babel/code-frame/-/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"
   integrity sha512-Zt1yodBx1UcyiePMSkWnU4hPqhwq7hGi2nFL1LeA3EUl+q2LQx16MISgJ0+z7dnmgvP9QtIleuETGOiOH1RcIw==
   dependencies:
-    "@babel/highlight" "^7.10.4" 
+    "@babel/highlight" "^7.10.4"
 
 "@babel/helper-validator-identifier@^7.14.5":
   version "7.14.9"
@@ -874,11 +874,6 @@ lodash.truncate@^4.4.2:
   version "4.4.2"
   resolved "https://registry.npmmirror.com/lodash.truncate/-/lodash.truncate-4.4.2.tgz#5a350da0b1113b837ecfffd5812cbe58d6eae193"
   integrity sha1-WjUNoLERO4N+z//VgSy+WNbq4ZM=
-
-loglevel@^1.7.1:
-  version "1.7.1"
-  resolved "https://registry.npmmirror.com/loglevel/-/loglevel-1.7.1.tgz#005fde2f5e6e47068f935ff28573e125ef72f197"
-  integrity sha512-Hesni4s5UkWkwCGJMQGAh71PaLUmKFM60dHvq0zi/vDhhrzuk+4GgNbTXJ12YYQJn6ZKBDNIjYcuQGKudvqrIw==
 
 lru-cache@^5.1.1:
   version "5.1.1"
