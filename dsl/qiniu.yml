@@ -1,5 +1,5 @@
-ref: qiniu_ssl_upload
-version: 1.0.1
+ref: qiniu
+version: 1.0.0
 resultFile: /tmp/resultFile
 inputParameters:
   - name: 证书路径
@@ -34,7 +34,7 @@ outputParameters:
     type: STRING
     description: 证书上传七牛云成功后生成的证书id
 spec:
-  image: 'jianmudev/jianmu-runner-qiniu:1.1.0'
+  image: 'jianmurunner/qiniu:1.0.0-ssl-upload'
   cmd:
     - node
     - /app/scripts/upload_ssl.js

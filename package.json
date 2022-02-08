@@ -1,9 +1,8 @@
 {
-  "name": "jianmu-runner-qiniu",
-  "version": "1.0.3",
+  "name": "upload_ssl",
+  "version": "1.0.0",
   "description": "",
   "scripts": {
-    "upload": "node scripts/upload.js",
     "build": "echo 'No build required'",
     "lint": "eslint ./ --ext .js --cache --fix"
   },
@@ -11,11 +10,10 @@
     "type": "git",
     "url": "https://gitee.com/jianmu-runners/jianmu-runner-qiniu.git"
   },
-  "author": "老技",
+  "author": "comyan",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "loglevel": "^1.7.1",
     "qiniu": "^7.4.0",
     "axios": "^0.22.0"
   },
