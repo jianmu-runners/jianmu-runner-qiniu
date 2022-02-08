@@ -11,4 +11,4 @@ pipeline:
     type: hub_publish:1.0.0
     param:
       hub_api_key: ((jianmuhub.apiKey))
-      dsl_file_path:  ${git_clone.git_path}/dsl/node_def.yml
+      dsl_file_path:  ${git_clone.git_path}/dsl/qiniu.yml

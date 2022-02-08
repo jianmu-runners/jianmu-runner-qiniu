@@ -1,5 +1,5 @@
-ref: qiniu_upload
-version: 1.0.3
+ref: qiniu
+version: 1.0.0-file-upload
 resultFile: /tmp/result_file
 inputParameters:
   - ref: qiniu_bucket
