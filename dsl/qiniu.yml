@@ -36,7 +36,7 @@ outputParameters:
     required: true
     description: /jianmu-ci-ui/1.0.0
 spec:
-  image: jianmudev/jianmu-runner-qiniu:1.0.2
+  image: jianmurunner/qiniu:1.0.0-file-upload
   cmd:
     - node
     - /app/scripts/upload.js
