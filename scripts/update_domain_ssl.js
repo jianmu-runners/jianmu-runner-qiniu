@@ -1,5 +1,5 @@
 const axios = require('axios');
-const qiniu = require('qiniu');
+const update_domain_ssl = require('scripts/update_domain_ssl');
 require('dotenv').config({ path: '.env' });
 
 const {
@@ -11,9 +11,9 @@ const {
   JIANMU_HTTP2_ENABLE,
 } = process.env;
 
-const mac = new qiniu.auth.digest.Mac(JIANMU_ACCESS_KEY, JIANMU_SECRET_KEY);
+const mac = new update_domain_ssl.auth.digest.Mac(JIANMU_ACCESS_KEY, JIANMU_SECRET_KEY);
 // 获取token
-const domainToken = qiniu.util.generateAccessToken(
+const domainToken = update_domain_ssl.util.generateAccessToken(
   mac,
   `https://api.qiniu.com/domain/${JIANMU_DOMAIN}`
 );
@@ -35,7 +35,7 @@ axios
     console.log('statusText:', res.statusText);
     console.log('data:', res.data);
     if (res.data.protocol === 'http') {
-      const sslizeToken = qiniu.util.generateAccessToken(
+      const sslizeToken = update_domain_ssl.util.generateAccessToken(
         mac,
         `https://api.qiniu.com/domain/${JIANMU_DOMAIN}/sslize`
       );
@@ -56,7 +56,7 @@ axios
           process.exit(1);
         });
     } else {
-      const httpsConfToken = qiniu.util.generateAccessToken(
+      const httpsConfToken = update_domain_ssl.util.generateAccessToken(
         mac,
         `https://api.qiniu.com/domain/${JIANMU_DOMAIN}/httpsconf`
       );

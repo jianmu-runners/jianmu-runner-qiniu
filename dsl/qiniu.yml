@@ -1,5 +1,5 @@
-ref: qiniu_domain_ssl_update
-version: 1.0.1
+ref: qiniu
+version: 1.0.0
 inputParameters:
   - name: 域名
     ref: domain
@@ -32,7 +32,7 @@ inputParameters:
     required: true
     description: 是否启用http2功能
 spec:
-  image: 'jianmudev/jianmu-runner-qiniu:1.2.0'
+  image: 'jianmurunner/qiniu:1.0.0-domain_ssl_update'
   cmd:
     - node
     - /app/scripts/update_domain_ssl.js
