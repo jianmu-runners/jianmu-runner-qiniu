@@ -32,7 +32,7 @@ inputParameters:
     required: true
     description: 是否启用http2功能
 spec:
-  image: 'jianmurunner/qiniu:1.0.0-domain_ssl_update'
+  image: 'jianmurunner/qiniu:1.0.0-domain-ssl-update'
   cmd:
     - node
     - /app/scripts/update_domain_ssl.js
