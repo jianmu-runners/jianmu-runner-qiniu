@@ -1,5 +1,6 @@
 ref: qiniu
-version: 1.0.0-file-upload
+version: 1.0.1-file-upload
+description: 修复了上传后的uri前缀为空时，在七牛云存储空间创建多余的未命名文件夹问题。
 resultFile: /tmp/result_file
 inputParameters:
   - ref: qiniu_bucket

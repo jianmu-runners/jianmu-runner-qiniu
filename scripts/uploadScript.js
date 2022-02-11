@@ -1,8 +1,8 @@
 const fs = require('fs');
 const qiniu = require('qiniu');
 const log = require('loglevel');
-const { levels: { TRACE } } = log;
-const { resolve } = require('path');
+const {levels: {TRACE}} = log;
+const {resolve} = require('path');
 const {
   JIANMU_QINIU_BUCKET: bucket,
   JIANMU_QINIU_AK: accessKey,
@@ -91,7 +91,7 @@ function uploadDirectory(dirPath, relative = '') {
           uploadDirectory(filePath, relativeName);
         } else {
           // 文件时，上传
-          uploadFile(`${uriPrefix}/${relativeName}`, filePath);
+          uploadFile(`${uriPrefix ? `${uriPrefix}/` : ''}${relativeName}`, filePath);
         }
       });
     });
